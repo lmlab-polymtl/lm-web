@@ -1,0 +1,94 @@
+---
+import { getPublications } from "../lib/publications";
+import Layout from "../components/Layout.astro";
+import LabLogo from "../components/LabLogo.astro";
+import Partners from "../components/Partners.astro";
+import PublicationItem from "../components/PublicationItem.astro";
+import { withBase } from "../lib/urls";
+
+const latestPublications = (await getPublications())
+  .filter((publication) => publication.data.selected)
+  .sort((a, b) => b.data.year - a.data.year || a.data.title.localeCompare(b.data.title))
+  .slice(0, 4);
+const areas = [
+  {
+    title: "Formal Specification",
+    summary: "Executable models that make protocol and system behavior precise enough to inspect.",
+    tags: ["Protocols", "Lustre", "SCADE"],
+  },
+  {
+    title: "Autonomous Systems",
+    summary: "Formal models for autonomous behavior before those systems meet the world.",
+    tags: ["LNT", "CADP", "Autonomy"],
+  },
+  {
+    title: "Requirements Analysis",
+    summary: "Turning normative and natural-language requirements into things we can reason about.",
+    tags: ["Requirements", "LLMs", "Analysis"],
+  },
+];
+---
+
+<Layout>
+  <section class="dossier-hero">
+    <div class="container dossier-sheet">
+      <div class="dossier-grid">
+        <div class="stamp-panel" aria-hidden="true">
+          <LabLogo size="160" />
+        </div>
+        <div class="hero-copy">
+          <h1>Verification methods for systems under uncertainty.</h1>
+          <p class="lede">
+            A Polytechnique Montréal research group building formal and runtime methods for
+            specifications, autonomous systems, and requirements analysis.
+          </p>
+          <div class="button-row">
+            <a class="button" href={withBase("/people")}>Meet the team</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Partners />
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <h2>Research areas</h2>
+        </div>
+      </div>
+      <div class="area-grid">
+        {areas.map((area) => (
+          <article class="area-card">
+            <h3>{area.title}</h3>
+            <p>{area.summary}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section publications-band">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Selected publications</h2>
+        <a href={withBase("/publications")}>All publications →</a>
+      </div>
+      <div class="publication-list">
+        {latestPublications.map((publication) => <PublicationItem publication={publication} />)}
+      </div>
+      <div class="join-card">
+        <div>
+          <h3>Work with us</h3>
+          <p>
+            We welcome prospective students, collaborators, and seminar speakers working on
+            verification, robotics, AI, and cyber-physical systems.
+          </p>
+        </div>
+        <a class="button" href={withBase("/contact")}>Contact the lab</a>
+      </div>
+    </div>
+  </section>
+</Layout>

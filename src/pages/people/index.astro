@@ -1,0 +1,55 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../components/Layout.astro";
+import PersonCard from "../../components/PersonCard.astro";
+
+const people = (await getCollection("people")).filter((person) => !person.data.isDraft).sort((a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name));
+const groups = ["Faculty", "Students", "Lab Members", "Collaborators", "Alumni"];
+const groupLabels: Record<string, string> = { Students: "Students" };
+---
+
+<Layout title="People" description="People in Marsso Lab.">
+  <section class="page-header">
+    <div class="container">
+      <h1>People</h1>
+      <p class="lede">
+        Marsso Lab brings together researchers working across formal methods, AI, robotics, and
+        cyber-physical systems.
+      </p>
+    </div>
+  </section>
+
+  {groups.map((group) => {
+    const groupPeople = group === "Students"
+      ? people.filter((person) => person.data.group === "PhD" || person.data.group === "MSc")
+      : people.filter((person) => person.data.group === group);
+    return groupPeople.length > 0 && (
+      <section class="section people-section">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <h2>{groupLabels[group] ?? group}</h2>
+            </div>
+          </div>
+          <div class="people-grid">
+            {groupPeople.map((person) => <PersonCard person={person} />)}
+          </div>
+        </div>
+      </section>
+    );
+  })}
+</Layout>
+
+<style>
+  .people-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  @media (max-width: 760px) {
+    .people-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

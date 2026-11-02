@@ -1,0 +1,78 @@
+---
+import logoSource from "../../public/lab-logo.svg?raw";
+
+interface Props {
+  size?: string;
+  className?: string;
+  animated?: boolean;
+}
+
+const { size = "44", className = "", animated = false } = Astro.props;
+const motionClass = animated ? "is-animated" : "is-still";
+const innerSvg = logoSource
+  .replace(/<\?xml[^>]*>\s*/i, "")
+  .replace(/<svg\b[^>]*>/i, "")
+  .replace(/<\/svg>\s*$/i, "");
+
+const signalPartByPathIndex = new Map([
+  [11, "one"],
+  [28, "one"],
+  [57, "one"],
+  [291, "one"],
+  [52, "two"],
+  [55, "two"],
+  [184, "two"],
+  [193, "two"],
+  [372, "two"],
+  [56, "three"],
+  [176, "three"],
+  [256, "three"],
+  [335, "three"],
+  [349, "three"],
+  [373, "three"],
+  [69, "connector-one"],
+  [67, "connector-two"],
+  [311, "connector-two"],
+  [152, "connector-three"],
+  [163, "connector-three"],
+  [30, "check"],
+  [61, "check"],
+  [70, "check"],
+  [71, "check"],
+  [76, "check"],
+  [79, "check"],
+  [89, "check"],
+  [131, "check"],
+  [413, "check"],
+]);
+
+let pathIndex = 0;
+const logoMarkup = innerSvg.replace(/<path\b[^>]*>/g, (tag: string) => {
+  pathIndex += 1;
+  const part = signalPartByPathIndex.get(pathIndex);
+
+  if (part) {
+    return `<g class="logo-signal-piece logo-signal-${part}">${tag}</g>`;
+  }
+
+  return tag;
+});
+---
+
+<svg
+  class={`logo-mark ${motionClass} ${className}`}
+  width={size}
+  height={size}
+  viewBox="255 55 612 612"
+  role="img"
+  aria-label="Marsso Lab logo"
+>
+  <g class="actual-logo" set:html={logoMarkup} />
+</svg>
+
+<style>
+  .logo-mark {
+    display: block;
+    overflow: visible;
+  }
+</style>

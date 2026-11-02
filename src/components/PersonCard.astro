@@ -1,0 +1,87 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { withBase } from "../lib/urls";
+
+interface Props {
+  person: CollectionEntry<"people">;
+}
+
+const { person } = Astro.props;
+const data = person.data;
+const initials = data.name
+  .split(" ")
+  .map((part) => part[0])
+  .join("")
+  .slice(0, 2);
+const degree = data.group === "PhD" ? "PhD" : data.group === "MSc" ? "Master's" : null;
+---
+
+<article class="person-card card">
+  <a class="person-avatar" href={withBase(`/people/${person.slug}`)} aria-label={`View ${data.name}`}>
+    {data.image ? <img src={withBase(data.image)} alt="" /> : <span>{initials}</span>}
+  </a>
+  <div>
+    {data.supervisor && <p class="meta">Supervised by {data.supervisor}</p>}
+    <h3><a href={withBase(`/people/${person.slug}`)}>{data.name}</a></h3>
+    <p class="degree">{degree ?? data.role}</p>
+    <p class="interests">{data.interests.slice(0, 3).join(" · ")}</p>
+  </div>
+</article>
+
+<style>
+  .person-card {
+    display: grid;
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 18px;
+    padding: 24px 18px 18px;
+  }
+
+  .person-avatar {
+    display: grid;
+    width: 82px;
+    height: 82px;
+    overflow: hidden;
+    place-items: center;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: #fff;
+    color: var(--color-ink);
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .person-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .person-card .meta,
+  .person-card h3,
+  .person-card p {
+    margin-bottom: 6px;
+  }
+
+  .person-card .degree {
+    margin-bottom: 6px;
+    color: var(--color-muted);
+    font-size: 0.82rem;
+    font-weight: 650;
+  }
+
+  .person-card .meta {
+    color: var(--color-ink);
+  }
+
+  .person-card h3 a {
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-underline-offset: 4px;
+  }
+
+  .interests {
+    font-size: 0.9rem;
+  }
+</style>

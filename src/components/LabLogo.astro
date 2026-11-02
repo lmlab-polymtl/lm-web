@@ -1,0 +1,15 @@
+---
+import LogoMark from "./LogoMark.astro";
+
+interface Props {
+  size?: string;
+  compact?: boolean;
+}
+
+const { size = "180", compact = false } = Astro.props;
+const className = compact ? "lab-logo compact" : "lab-logo";
+---
+
+<span class={className} style={`--logo-size: ${size}px`} role="img" aria-label="Marsso Lab cat and verification logo">
+  <LogoMark size={size} animated={!compact} />
+</span>

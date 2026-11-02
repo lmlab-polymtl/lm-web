@@ -1,0 +1,58 @@
+---
+import Layout from "../components/Layout.astro";
+---
+
+<Layout title="Contact" description="Contact Marsso Lab.">
+  <section class="page-header">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h1>Submit a system, property, or research question.</h1>
+      <p class="lede">
+        We are open to prospective students, research collaborators, seminar speakers, and
+        industry conversations around verification and assurance.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <article class="card contact-card">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Email</h2>
+        <p><a href="mailto:lina.marsso@polymtl.ca">lina.marsso@polymtl.ca</a></p>
+        <p>Polytechnique Montréal, Department of Computer and Software Engineering</p>
+      </article>
+      <article class="card contact-card">
+        <p class="eyebrow">Prospective students</p>
+        <h2>Joining the lab</h2>
+        <p>
+          Send a short note with your CV, transcripts, research interests, and a pointer to any
+          relevant writing, code, or project work.
+        </p>
+        <a class="button" href="mailto:lina.marsso@polymtl.ca?subject=Prospective%20student%20-%20Marsso%20Lab">Start a conversation</a>
+      </article>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .contact-card {
+    padding: 28px 22px 22px;
+  }
+
+  .contact-card h2 {
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 760px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

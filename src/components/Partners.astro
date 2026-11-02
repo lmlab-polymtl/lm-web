@@ -1,0 +1,84 @@
+---
+import { existsSync } from "node:fs";
+import { withBase } from "../lib/urls";
+
+// Drop each logo into public/partners/ using the file name below.
+// Until a file exists, the partner's name is shown as text instead.
+const partners = [
+  { name: "Polytechnique Montréal", url: "https://www.polymtl.ca/", logo: "polymtl.png" },
+  { name: "Mila", url: "https://mila.quebec/en", logo: "mila.png" },
+  { name: "IVADO", url: "https://ivado.ca/en/", logo: "ivado.png" },
+].map((p) => ({ ...p, hasLogo: existsSync(`public/partners/${p.logo}`) }));
+---
+
+<section class="partners" aria-label="Affiliations">
+  <div class="container">
+    <p class="partners-label">Affiliated with</p>
+    <ul class="partners-list">
+      {partners.map((p) => (
+        <li>
+          <a href={p.url} target="_blank" rel="noopener noreferrer" aria-label={p.name}>
+            {p.hasLogo ? <img src={withBase(`/partners/${p.logo}`)} alt={p.name} loading="lazy" /> : <span>{p.name}</span>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .partners {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .partners-label {
+    margin: 0 0 14px;
+    color: var(--color-muted);
+    font-family: var(--font-meta);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .partners-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px clamp(28px, 6vw, 72px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .partners-list a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-ink);
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .partners-list a span {
+    opacity: 0.75;
+    transition: opacity 0.15s;
+  }
+
+  .partners-list a:hover span {
+    opacity: 1;
+  }
+
+  .partners-list img {
+    display: block;
+    width: auto;
+    height: 38px;
+    max-width: 180px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+  }
+</style>

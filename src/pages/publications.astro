@@ -1,0 +1,132 @@
+---
+import { getPublications } from "../lib/publications";
+import Layout from "../components/Layout.astro";
+import PublicationItem from "../components/PublicationItem.astro";
+
+const publications = (await getPublications())
+  .filter((publication) => publication.data.showInLabPublications)
+  .sort((a, b) => b.data.year - a.data.year || a.data.title.localeCompare(b.data.title));
+const years = [...new Set(publications.map((publication) => publication.data.year))];
+const types = [...new Set(publications.map((publication) => publication.data.type))].sort();
+---
+
+<Layout title="Publications" description="Publications from Marsso Lab.">
+  <section class="page-header">
+    <div class="container">
+      <h1>Publications</h1>
+      <p class="lede">
+        Papers by lab members, including work completed before joining the lab.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container publication-years">
+      <form class="publication-filters" aria-label="Filter publications">
+        <label>
+          Search
+          <input data-filter-search type="search" placeholder="Title or author" />
+        </label>
+        <label>
+          Year
+          <select data-filter-year>
+            <option value="">All years</option>
+            {years.map((year) => <option value={year}>{year}</option>)}
+          </select>
+        </label>
+        <label>
+          Type
+          <select data-filter-type>
+            <option value="">All types</option>
+            {types.map((type) => <option value={type}>{type}</option>)}
+          </select>
+        </label>
+        <a href="#all-publications" data-filter-clear>Clear filters</a>
+      </form>
+      <p class="filter-results" data-filter-results aria-live="polite"></p>
+      <div id="all-publications">
+      {years.map((year) => (
+        <section class="year-block" data-year-block={year}>
+          <h2>{year}</h2>
+          {publications
+            .filter((publication) => publication.data.year === year)
+            .map((publication) => <div data-publication data-year={publication.data.year} data-type={publication.data.type} data-search={`${publication.data.title} ${publication.data.authors.join(" ")}`.toLowerCase()}><PublicationItem publication={publication} /></div>)}
+        </section>
+      ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const search = document.querySelector<HTMLInputElement>("[data-filter-search]");
+  const year = document.querySelector<HTMLSelectElement>("[data-filter-year]");
+  const type = document.querySelector<HTMLSelectElement>("[data-filter-type]");
+  const results = document.querySelector<HTMLElement>("[data-filter-results]");
+  const items = Array.from(document.querySelectorAll<HTMLElement>("[data-publication]"));
+  const yearBlocks = Array.from(document.querySelectorAll<HTMLElement>("[data-year-block]"));
+  const update = () => {
+    const query = search?.value.trim().toLowerCase() ?? "";
+    const activeYear = year?.value ?? "";
+    const activeType = type?.value ?? "";
+    let count = 0;
+    items.forEach((item) => {
+      const matches = (!query || item.dataset.search?.includes(query)) && (!activeYear || item.dataset.year === activeYear) && (!activeType || item.dataset.type === activeType);
+      item.hidden = !matches;
+      if (matches) count += 1;
+    });
+    yearBlocks.forEach((block) => { block.hidden = !block.querySelector("[data-publication]:not([hidden])"); });
+    if (results) results.textContent = `${count} publication${count === 1 ? "" : "s"} shown`;
+  };
+  [search, year, type].forEach((control) => control?.addEventListener("input", update));
+  document.querySelector("[data-filter-clear]")?.addEventListener("click", () => {
+    if (search) search.value = "";
+    if (year) year.value = "";
+    if (type) type.value = "";
+    update();
+  });
+  update();
+</script>
+
+<style>
+  .publication-years {
+    display: grid;
+    gap: 46px;
+  }
+
+  .publication-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: end;
+    margin-bottom: 18px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .publication-filters label {
+    display: grid;
+    gap: 6px;
+    color: var(--color-muted);
+    font-size: 0.88rem;
+  }
+
+  .publication-filters input,
+  .publication-filters select {
+    min-height: 42px;
+    padding: 0 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font: inherit;
+  }
+
+  .publication-filters input { min-width: min(280px, 75vw); }
+  .publication-filters a { min-height: 42px; display: inline-flex; align-items: center; }
+  .filter-results { margin-bottom: 26px; font-size: 0.92rem; }
+
+  .year-block h2 {
+    margin-bottom: 18px;
+  }
+</style>

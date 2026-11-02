@@ -1,0 +1,234 @@
+---
+import LabLogo from "./LabLogo.astro";
+import { withBase } from "../lib/urls";
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isCurrent = (href: string) => currentPath === (withBase(href).replace(/\/$/, "") || "/") || (href !== "/" && currentPath.startsWith(`${withBase(href)}/`));
+const nav = [
+  { href: "/", label: "Home" },
+  { href: "/people", label: "People" },
+  { href: "/publications", label: "Publications" },
+  { href: "/contact", label: "Contact" },
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href={withBase("/")} aria-label="Marsso Lab home">
+      <LabLogo size="44" compact />
+      <span>Marsso Lab</span>
+    </a>
+    <nav class="nav desktop-nav" aria-label="Main navigation">
+      {nav.map((item) => <a class="nav-link" href={withBase(item.href)} aria-current={isCurrent(item.href) ? "page" : undefined}>{item.label}</a>)}
+    </nav>
+    <details class="nav-shell mobile-nav">
+      <summary class="menu-toggle" aria-label="Main menu">
+        <span>Menu</span>
+      </summary>
+      <nav class="nav" aria-label="Main navigation">
+        {nav.map((item) => <a class="nav-link" href={withBase(item.href)} aria-current={isCurrent(item.href) ? "page" : undefined}>{item.label}</a>)}
+      </nav>
+    </details>
+  </div>
+</header>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>(".mobile-nav");
+  const toggle = menu?.querySelector<HTMLElement>("summary");
+  const closeMenu = (restoreFocus = false) => {
+    if (!menu?.open) return;
+    menu.open = false;
+    if (restoreFocus) toggle?.focus();
+  };
+  menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => closeMenu()));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu(true);
+  });
+  document.addEventListener("click", (event) => {
+    if (event.target instanceof Node && !menu?.contains(event.target)) closeMenu();
+  });
+  document.addEventListener("focusin", (event) => {
+    if (event.target instanceof Node && !menu?.contains(event.target)) closeMenu();
+  });
+  window.matchMedia("(min-width: 761px)").addEventListener("change", (event) => {
+    if (event.matches) closeMenu();
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--color-border);
+    background: rgba(248, 245, 239, 0.96);
+    backdrop-filter: blur(12px);
+  }
+
+  .header-inner {
+    display: flex;
+    min-height: 76px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--color-ink);
+    font-family: var(--font-heading);
+    font-size: 1.28rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+
+  .nav-shell {
+    position: relative;
+  }
+
+  details.mobile-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav-link {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    padding: 0 6px;
+    border: 0;
+    border-radius: 0;
+    color: var(--color-muted);
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .nav-link[aria-current="page"],
+  .nav-link:hover {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+
+  .nav-link { transition: color 150ms ease; }
+  .nav-link[aria-current="page"] { font-weight: 600; text-decoration-thickness: 2px; }
+  .nav-link:focus-visible, .menu-toggle:focus-visible { outline: 2px solid var(--color-teal); outline-offset: 3px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .nav-shell[open] .nav { animation: menu-reveal 160ms ease-out; }
+  }
+  @keyframes menu-reveal { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) { .menu-toggle::after, .nav-link { transition: none; } }
+
+  @media (max-width: 760px) {
+    .header-inner {
+      min-height: 66px;
+      padding: 10px 0;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    .brand {
+      gap: 9px;
+      font-size: 1.08rem;
+    }
+
+    .brand :global(.lab-logo) {
+      --logo-size: 38px !important;
+    }
+
+    .desktop-nav {
+      display: none;
+    }
+
+    details.mobile-nav {
+      display: block;
+    }
+
+    .nav-shell {
+      flex: 0 0 auto;
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      background: transparent;
+      color: var(--color-ink);
+      cursor: pointer;
+      font-family: var(--font-meta);
+      font-size: 0.92rem;
+      font-weight: 500;
+      list-style: none;
+      text-transform: none;
+    }
+
+    .menu-toggle::-webkit-details-marker {
+      display: none;
+    }
+
+    .menu-toggle::after {
+      width: 7px;
+      height: 7px;
+      margin-left: 10px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      content: "";
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 160ms ease;
+    }
+
+    .nav-shell[open] .menu-toggle {
+      border-color: var(--color-ink);
+      background: var(--color-ink);
+      color: #fff;
+    }
+
+    .nav-shell[open] .menu-toggle::after {
+      transform: translateY(2px) rotate(225deg);
+    }
+
+    .nav {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      display: none;
+      width: min(250px, calc(100vw - 40px));
+      padding: 8px;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: rgba(255, 254, 251, 0.98);
+      box-shadow: 0 8px 24px rgba(32, 37, 43, 0.08);
+    }
+
+    .nav-shell[open] .nav {
+      display: grid;
+      gap: 4px;
+    }
+
+    .nav-link {
+      min-height: 44px;
+      justify-content: space-between;
+      padding: 0 12px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+    }
+  }
+</style>

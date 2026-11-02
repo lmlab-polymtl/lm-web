@@ -1,0 +1,57 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { withBase } from "../lib/urls";
+
+interface Props {
+  talk: CollectionEntry<"talks">;
+}
+
+const { talk } = Astro.props;
+const data = talk.data;
+---
+
+<article class="talk-card card">
+  <p class="meta">{data.date.toLocaleDateString("en", { month: "short", day: "numeric", year: "numeric" })} · {data.venue}</p>
+  <h3>{data.title}</h3>
+  <p class="speaker">{data.speaker}</p>
+  <p>{data.abstract}</p>
+  {data.tags.length > 0 && <p class="talk-topics">{data.tags.join(" · ")}</p>}
+  <div class="talk-links">
+    {data.links.map((link) => <a href={withBase(link.url)}>{link.label}</a>)}
+  </div>
+</article>
+
+<style>
+  .talk-card {
+    display: grid;
+    gap: 12px;
+    padding: 24px 18px 18px;
+  }
+
+  .talk-card h3,
+  .talk-card p {
+    margin-bottom: 0;
+  }
+
+  .speaker {
+    color: var(--color-ink);
+    font-weight: 800;
+  }
+
+  .talk-topics {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+  }
+
+  .talk-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .talk-links a {
+    color: var(--color-teal);
+    font-weight: 700;
+    text-decoration: none;
+  }
+</style>

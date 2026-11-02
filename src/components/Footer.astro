@@ -1,0 +1,176 @@
+---
+import LabLogo from "./LabLogo.astro";
+import { withBase } from "../lib/urls";
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="footer-brand" href={withBase("/")}>
+        <LabLogo size="48" compact />
+        <span>Marsso Lab</span>
+      </a>
+      <p>
+        Formal methods for specifying, modeling, and analyzing software-intensive systems.
+      </p>
+    </div>
+    <div>
+      <p class="meta">Polytechnique Montréal</p>
+      <p>Department of Computer and Software Engineering</p>
+      <p><a href="mailto:lina.marsso@polymtl.ca">lina.marsso@polymtl.ca</a></p>
+    </div>
+    <div>
+      <p class="meta">Explore</p>
+      <a href={withBase("/people")}>People</a>
+      <a href={withBase("/publications")}>Publications</a>
+    </div>
+  </div>
+  <div class="container copyright">
+    <p>© {new Date().getFullYear()} Marsso Lab.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    background: var(--color-paper);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) minmax(260px, 0.8fr) minmax(140px, 0.35fr);
+    gap: clamp(28px, 6vw, 84px);
+    align-items: start;
+    padding: 50px 0 42px;
+  }
+
+  .footer-grid > div {
+    min-width: 0;
+  }
+
+  .footer-grid > div:first-child {
+    max-width: 460px;
+  }
+
+  .site-footer a.footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--color-ink);
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    margin-bottom: 14px;
+  }
+
+  .site-footer a.footer-brand:hover {
+    color: var(--color-ink);
+  }
+
+  .site-footer p {
+    margin-bottom: 8px;
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .site-footer .meta {
+    margin-bottom: 10px;
+  }
+
+  .site-footer a {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--color-muted);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-underline-offset: 4px;
+  }
+
+  .site-footer a:hover {
+    color: var(--color-teal);
+  }
+
+  .copyright {
+    padding: 16px 0 28px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .copyright p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 760px) {
+    .site-footer {
+      margin-top: 0;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 22px;
+      padding: 34px 0 28px;
+    }
+
+    .footer-grid > div {
+      padding: 0;
+    }
+
+    .footer-grid > div + div {
+      padding-top: 18px;
+      border-top: 1px solid rgba(218, 221, 226, 0.8);
+    }
+
+    .site-footer a.footer-brand {
+      gap: 10px;
+      font-size: 1.3rem;
+    }
+
+    .footer-brand :global(.lab-logo) {
+      --logo-size: 42px !important;
+    }
+
+    .site-footer p {
+      max-width: 34rem;
+      margin-bottom: 7px;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .site-footer .meta {
+      margin-bottom: 8px;
+      font-size: 0.78rem;
+    }
+
+    .site-footer a {
+      width: fit-content;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .copyright {
+      padding: 14px 0 22px;
+    }
+
+    .copyright p {
+      font-size: 0.86rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .footer-grid {
+      padding-top: 28px;
+    }
+
+    .site-footer a.footer-brand {
+      font-size: 1.18rem;
+    }
+
+    .site-footer p,
+    .site-footer a {
+      font-size: 0.9rem;
+    }
+  }
+</style>

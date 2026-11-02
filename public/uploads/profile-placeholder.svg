@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Profile placeholder">
+  <rect width="600" height="600" fill="#fff0f1"/>
+  <circle cx="300" cy="230" r="92" fill="#efa5aa"/>
+  <path d="M126 520c26-112 95-168 174-168s148 56 174 168" fill="#ffffff"/>
+  <path d="M126 520c26-112 95-168 174-168s148 56 174 168" fill="none" stroke="#20252b" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="300" cy="230" r="92" fill="none" stroke="#20252b" stroke-width="18"/>
+  <path d="M188 92h224" stroke="#1e9ba8" stroke-width="16" stroke-linecap="round"/>
+  <path d="M212 126h176" stroke="#efa5aa" stroke-width="16" stroke-linecap="round"/>
+</svg>
