@@ -32,8 +32,8 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          ASTRO_BASE: /lm-web
-          ASTRO_SITE: https://lmlab-polymtl.github.io
+          ASTRO_BASE: /
+          ASTRO_SITE: https://lmlab.ca
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
