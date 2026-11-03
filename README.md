@@ -1,6 +1,6 @@
 # Marsso Lab Website
 
-A static academic lab website built with Astro, content collections, and Decap CMS.
+A static academic lab website built with Astro and content collections.
 
 ## Local Development
 
@@ -8,8 +8,6 @@ A static academic lab website built with Astro, content collections, and Decap C
 npm install
 npm run dev
 ```
-
-The CMS lives at `/admin/` and edits Markdown content in `src/content`.
 
 ## Deployment
 
