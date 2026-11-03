@@ -6,7 +6,7 @@ import TalkCard from "../components/TalkCard.astro";
 const talks = (await getCollection("talks")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout title="Talks" description="Speakers and talks hosted by Marsso Lab.">
+<Layout title="Talks" description="Speakers and talks hosted by LM Lab.">
   <section class="page-header">
     <div class="container">
       <p class="eyebrow">Speakers / talks</p>

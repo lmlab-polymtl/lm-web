@@ -1,4 +1,4 @@
-# Marsso Lab Website
+# LM Lab Website
 
 A static academic lab website built with Astro and content collections.
 

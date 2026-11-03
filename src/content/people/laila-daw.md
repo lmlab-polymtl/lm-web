@@ -12,4 +12,4 @@ projects:
 links: []
 ---
 
-Laila is part of Marsso Lab. This profile is ready for a short bio, links, projects, and publication connections once confirmed.
+Laila is part of LM Lab. This profile is ready for a short bio, links, projects, and publication connections once confirmed.

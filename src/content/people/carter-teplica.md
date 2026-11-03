@@ -13,4 +13,4 @@ links: []
 mila: https://mila.quebec/en/directory/carter-teplica
 ---
 
-Carter is part of Marsso Lab. This profile is ready for a short bio, links, projects, and publication connections once confirmed.
+Carter is part of LM Lab. This profile is ready for a short bio, links, projects, and publication connections once confirmed.
