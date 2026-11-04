@@ -1,6 +1,53 @@
 ---
 member: lina-marsso
 publications:
+  - id: crayon
+    title: 'CRAYON: Supporting the Elicitation of Pluralistic Normative Requirements for Autonomous Systems'
+    year: 2026
+    venue: RE 2026
+    type: Conference
+    authors:
+    - Laila Mahmoud Daw Abodinar
+    - Paul Adubi
+    - Reem Ayad
+    - Benoit Hogedez
+    - Isobel Standen
+    - Beverley A. Townsend
+    - Armstrong Tita Foundjem
+    - Foutse Khomh
+    - Lina Marsso
+    researchStreams: []
+    showInLabPublications: true
+    selected: false
+    links:
+    - label: Paper
+      url: https://doi.org/10.1109/RE68928.2026.00009
+    source: https://dblp.org/rec/conf/re/AbodinarAAHSTFKM26
+    showOnProfile: false
+    profileOrder: 100
+  - id: sleec-framework
+    title: The SLEEC Framework for Normative Requirements Engineering
+    year: 2026
+    venue: FM 2026
+    type: Conference
+    authors:
+    - Pedro Ribeiro
+    - Radu Calinescu
+    - Ana Cavalcanti
+    - Marsha Chechik
+    - Sinem Getir Yaman
+    - Lina Marsso
+    - Isobel Standen
+    - Beverley A. Townsend
+    researchStreams: []
+    showInLabPublications: true
+    selected: false
+    links:
+    - label: Paper
+      url: https://doi.org/10.1007/978-3-032-26220-2_24
+    source: https://dblp.org/rec/conf/fm/RibeiroCCCYMST26
+    showOnProfile: false
+    profileOrder: 100
   - id: legos-sleec
     title: 'LEGOS-SLEEC: Tool for Formalizing and Analyzing Normative Requirements'
     year: 2025
@@ -23,6 +70,63 @@ publications:
     source: https://www.cs.toronto.edu/~lmarsso/
     showOnProfile: true
     profileOrder: 1
+  - id: bounded-satisfiability-aggregations
+    title: Bounded satisfiability checking of FOL* formulas with aggregations
+    year: 2025
+    venue: Formal Methods in System Design
+    type: Journal
+    authors:
+    - Nick Feng
+    - Lina Marsso
+    - Yuliia Kholodetska
+    - Marsha Chechik
+    researchStreams: []
+    showInLabPublications: true
+    selected: false
+    links:
+    - label: Paper
+      url: https://doi.org/10.1007/s10703-025-00483-4
+    source: https://dblp.org/rec/journals/fmsd/FengMKC25
+    showOnProfile: false
+    profileOrder: 100
+  - id: efficient-out-of-model-scope-detection
+    title: Effective, Efficient, and Environmentally Friendly Out-of-Model-Scope Detection Methodology
+    year: 2025
+    venue: ISSRE 2025
+    type: Conference
+    authors:
+    - Zhenyu Yang
+    - Ettore Merlo
+    - Clément Benesse
+    - Lina Marsso
+    researchStreams: []
+    showInLabPublications: true
+    selected: false
+    links:
+    - label: Paper
+      url: https://doi.org/10.1109/ISSRE66568.2025.00057
+    source: https://dblp.org/rec/conf/issre/YangMBM25
+    showOnProfile: false
+    profileOrder: 100
+  - id: untangling-shared-phenomena
+    title: Untangling Shared Phenomena for Improving Analysis of Normative Requirements
+    year: 2025
+    venue: MO2RE@ICSE 2025
+    type: Workshop
+    authors:
+    - Junwei Quan
+    - Lina Marsso
+    - Dalal Alrajeh
+    - Marsha Chechik
+    researchStreams: []
+    showInLabPublications: true
+    selected: false
+    links:
+    - label: Paper
+      url: https://doi.org/10.1109/MO2RE66661.2025.00010
+    source: https://dblp.org/rec/conf/mo2re/QuanMAC25
+    showOnProfile: false
+    profileOrder: 100
   - id: debugging-normative-requirements
     title: Analyzing and Debugging Normative Requirements via Satisfiability Checking
     year: 2024
