@@ -18,12 +18,13 @@ publications:
     - Lina Marsso
     researchStreams: []
     showInLabPublications: true
-    selected: false
+    selected: yes
     links:
     - label: Paper
       url: https://doi.org/10.1109/RE68928.2026.00009
     source: https://dblp.org/rec/conf/re/AbodinarAAHSTFKM26
-    showOnProfile: false
+    award: Honourable Mention for Best Paper
+    showOnProfile: yes
     profileOrder: 100
   - id: sleec-framework
     title: The SLEEC Framework for Normative Requirements Engineering
@@ -41,7 +42,7 @@ publications:
     - Beverley A. Townsend
     researchStreams: []
     showInLabPublications: true
-    selected: false
+    selected: yes
     links:
     - label: Paper
       url: https://doi.org/10.1007/978-3-032-26220-2_24
@@ -87,7 +88,7 @@ publications:
     - label: Paper
       url: https://doi.org/10.1007/s10703-025-00483-4
     source: https://dblp.org/rec/journals/fmsd/FengMKC25
-    showOnProfile: false
+    showOnProfile: yes
     profileOrder: 100
   - id: efficient-out-of-model-scope-detection
     title: Effective, Efficient, and Environmentally Friendly Out-of-Model-Scope Detection Methodology
@@ -106,7 +107,7 @@ publications:
     - label: Paper
       url: https://doi.org/10.1109/ISSRE66568.2025.00057
     source: https://dblp.org/rec/conf/issre/YangMBM25
-    showOnProfile: false
+    showOnProfile: yes
     profileOrder: 100
   - id: untangling-shared-phenomena
     title: Untangling Shared Phenomena for Improving Analysis of Normative Requirements
