@@ -13,17 +13,25 @@ links: [{"label": "Full publication record (DBLP)", "url": "https://dblp.uni-tri
 mila: https://mila.quebec/en/directory/lina-marsso
 ---
 
-Lina Marsso is an Assistant Professor at Polytechnique Montréal and an Associate Academic Member of Mila. Her work combines formal methods and software engineering to assess and improve the safety and responsibility of intelligent systems.
+Lina Marsso is an Assistant Professor in the computer science department at [Polytechnique Montréal](https://www.polymtl.ca/) and an Associate Academic Member of [Mila](https://mila.quebec/en). Her work combines formal methods and software engineering to assess and improve the safety and responsibility of autonomous and intelligent systems.
 
 ## Research
 
-She studies conformance testing, satisfiability checking, and the reliability of perception and machine learning components. Another focus is translating social, legal, ethical, empathetic, and cultural requirements into specifications that can be analyzed and monitored.
+Her long-term research goal is to enable the development of autonomous systems that are safe and responsible. She investigates what safety and responsibility mean for these systems, how to assess their compliance with established standards, and how to adapt their behaviour when they fail to comply.
+
+Her research and collaboration interests include:
+
+- **Formal methods (FM):** Developing and applying formal methods to software in general, including systems with AI components.
+- **Requirements engineering for AI (RE4AI):** Eliciting requirements for safe and trustworthy AI systems. See the [RETRAI workshop](https://www.cs.toronto.edu/~retrai/).
+- **Software engineering for AI (SE4AI):** Developing software engineering techniques to validate and guide AI-based systems using elicited requirements.
 
 ## Background
 
-Before joining Polytechnique Montréal, she was a postdoctoral researcher at the University of Toronto with Marsha Chechik. She completed her PhD in the CONVECS team at Inria in 2019, supervised by Radu Mateescu, Ioannis Parissis, and Wendelin Serwe. Her thesis examined model-based testing of GALS systems.
+Before joining Polytechnique Montréal, she was a postdoctoral researcher in the Department of Computer Science at the [University of Toronto](https://web.cs.toronto.edu/), in the Modelling and Verification group with Professor [Marsha Chechik](http://www.cs.toronto.edu/~chechik/index.shtml).
 
-She earned an MSc in computer science from Grenoble in 2016 and a bachelor's degree in computer science from Strasbourg in 2014.
+She completed her PhD in the [CONVECS team](http://convecs.inria.fr) at [Inria](http://www.inria.fr/centre/grenoble/), supervised by Professors [Radu Mateescu](http://convecs.inria.fr/people/Radu.Mateescu/), [Ioannis Parissis](http://lcis.grenoble-inp.fr/le-laboratoire/ioannis-parissis-page-personnelle-409408.kjsp), and [Wendelin Serwe](http://convecs.inria.fr/people/Wendelin.Serwe/). She defended her thesis, *On Model-based Testing of GALS Systems*, at Université Grenoble Alpes on December 10, 2019.
+
+She earned an MSc in computer science from the [University of Grenoble](https://mosig.imag.fr/) in 2016 and a bachelor's degree in computer science from the [University of Strasbourg](https://mathinfo.unistra.fr/) in 2014.
 
 ## Mentoring and collaboration
 
