@@ -17,12 +17,12 @@ const degree = data.group === "PhD" ? "PhD" : data.group === "MSc" ? "Master's" 
 ---
 
 <article class="person-card card">
-  <a class="person-avatar" href={withBase(`/people/${person.slug}`)} aria-label={`View ${data.name}`}>
+  <a class="person-avatar" href={withBase(`/people/${person.id}`)} aria-label={`View ${data.name}`}>
     {data.image ? <img src={withBase(data.image)} alt="" /> : <span>{initials}</span>}
   </a>
   <div>
     {data.supervisor && <p class="meta">Supervised by {data.supervisor}</p>}
-    <h3><a href={withBase(`/people/${person.slug}`)}>{data.name}</a></h3>
+    <h3><a href={withBase(`/people/${person.id}`)}>{data.name}</a></h3>
     <p class="degree">{degree ?? data.role}</p>
     <p class="interests">{data.interests.slice(0, 3).join(" · ")}</p>
   </div>
