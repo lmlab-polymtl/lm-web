@@ -27,9 +27,9 @@ Her research and collaboration interests include:
 
 ## Background
 
-Before joining Polytechnique Montréal, she was a postdoctoral researcher in the Department of Computer Science at the [University of Toronto](https://web.cs.toronto.edu/), in the Modelling and Verification group with Professor [Marsha Chechik](http://www.cs.toronto.edu/~chechik/index.shtml).
+Before joining Polytechnique Montréal, she was a postdoctoral researcher in the Department of Computer Science at the [University of Toronto](https://web.cs.toronto.edu/), in the Modelling and Verification group with Professor [Marsha Chechik](https://www.cs.toronto.edu/~chechik/index.shtml).
 
-She completed her PhD in the [CONVECS team](http://convecs.inria.fr) at [Inria](http://www.inria.fr/centre/grenoble/), supervised by Professors [Radu Mateescu](http://convecs.inria.fr/people/Radu.Mateescu/), [Ioannis Parissis](http://lcis.grenoble-inp.fr/le-laboratoire/ioannis-parissis-page-personnelle-409408.kjsp), and [Wendelin Serwe](http://convecs.inria.fr/people/Wendelin.Serwe/). She defended her thesis, *On Model-based Testing of GALS Systems*, at Université Grenoble Alpes on December 10, 2019.
+She completed her PhD in the [CONVECS team](https://convecs.inria.fr) at [Inria](https://www.inria.fr/centre/grenoble/), supervised by Professors [Radu Mateescu](https://convecs.inria.fr/people/Radu.Mateescu/), [Ioannis Parissis](https://lcis.grenoble-inp.fr/le-laboratoire/ioannis-parissis-page-personnelle-409408.kjsp), and [Wendelin Serwe](https://convecs.inria.fr/people/Wendelin.Serwe/). She defended her thesis, *On Model-based Testing of GALS Systems*, at Université Grenoble Alpes on December 10, 2019.
 
 She earned an MSc in computer science from the [University of Grenoble](https://mosig.imag.fr/) in 2016 and a bachelor's degree in computer science from the [University of Strasbourg](https://mathinfo.unistra.fr/) in 2014.
 

@@ -156,9 +156,9 @@ publications:
       - label: Tool
         url: https://github.com/NickF0211/LEGOS-SLEEC
       - label: Case-studies
-        url: http://www.cs.toronto.edu/~sleec/
+        url: https://www.cs.toronto.edu/~sleec/
       - label: Slides
-        url: http://www.cs.toronto.edu/~lmarsso/ICSE_2024_SLIDES.pdf
+        url: https://www.cs.toronto.edu/~lmarsso/ICSE_2024_SLIDES.pdf
     source: https://www.cs.toronto.edu/~lmarsso/
     award: ACM SIGSOFT Distinguished Paper Award
     showOnProfile: false
@@ -181,7 +181,7 @@ publications:
       - label: Tool
         url: https://github.com/NickF0211/LEGOS-Proof-Artifact/
       - label: Slides
-        url: http://www.cs.toronto.edu/~lmarsso/ASE-2024.pdf
+        url: https://www.cs.toronto.edu/~lmarsso/ASE-2024.pdf
     source: https://www.cs.toronto.edu/~lmarsso/
     showOnProfile: true
     profileOrder: 100
@@ -213,7 +213,7 @@ publications:
       - label: Tool
         url: https://github.com/NickF0211/sleecvalDef
       - label: Slides
-        url: http://www.cs.toronto.edu/~lmarsso/RE.pdf
+        url: https://www.cs.toronto.edu/~lmarsso/RE.pdf
     source: https://www.cs.toronto.edu/~lmarsso/
     showOnProfile: true
     profileOrder: 2
@@ -304,9 +304,9 @@ publications:
     selected: false
     links:
       - label: Paper
-        url: http://www.cs.toronto.edu/~fengnick/pdfs/ase23.pdf
+        url: https://www.cs.toronto.edu/~fengnick/pdfs/ase23.pdf
       - label: Slides
-        url: http://www.cs.toronto.edu/~lmarsso/NIER_ASE_2023_SLIDES.pdf
+        url: https://www.cs.toronto.edu/~lmarsso/NIER_ASE_2023_SLIDES.pdf
       - label: Tool
         url: https://github.com/NickF0211/SD
     source: https://www.cs.toronto.edu/~lmarsso/
@@ -354,7 +354,7 @@ publications:
       - label: Paper
         url: https://arxiv.org/abs/2202.03930
       - label: Slides
-        url: http://www.cs.toronto.edu/~lmarsso/ICSE-2022.pdf
+        url: https://www.cs.toronto.edu/~lmarsso/ICSE-2022.pdf
       - label: Video
         url: https://www.youtube.com/watch?v=B5qOf22_lOE&feature=youtu.be
       - label: Material
@@ -380,7 +380,7 @@ publications:
       - label: Paper
         url: https://hal.inria.fr/hal-03623521/en
       - label: Models
-        url: http://mars-workshop.org//repository/031-AutoVehicles.html
+        url: https://mars-workshop.org//repository/031-AutoVehicles.html
     source: https://www.cs.toronto.edu/~lmarsso/
     showOnProfile: false
     profileOrder: 100
@@ -421,7 +421,7 @@ publications:
     selected: true
     links:
       - label: Paper
-        url: http://convecs.inria.fr/doc/publications/Marsso-Mateescu-Serwe-20.pdf
+        url: https://convecs.inria.fr/doc/publications/Marsso-Mateescu-Serwe-20.pdf
     source: https://www.cs.toronto.edu/~lmarsso/
     showOnProfile: true
     profileOrder: 100
@@ -442,7 +442,7 @@ publications:
       - label: Paper
         url: https://hal.inria.fr/hal-02394989/en
       - label: Slides
-        url: http://convecs.inria.fr/doc/presentations/Marsso-IFM-19.pdf
+        url: https://convecs.inria.fr/doc/presentations/Marsso-IFM-19.pdf
     source: https://www.cs.toronto.edu/~lmarsso/
     showOnProfile: false
     profileOrder: 100
@@ -480,7 +480,7 @@ publications:
       - label: Paper
         url: https://hal.inria.fr/hal-01779151/en
       - label: Slides
-        url: http://convecs.inria.fr/doc/presentations/BozicMarsso-MARS-18.pdf
+        url: https://convecs.inria.fr/doc/presentations/BozicMarsso-MARS-18.pdf
     source: https://www.cs.toronto.edu/~lmarsso/
     showOnProfile: false
     profileOrder: 100
@@ -499,9 +499,9 @@ publications:
       - label: Paper
         url: https://hal.inria.fr/hal-01775332/en
       - label: Slides
-        url: http://cadp.inria.fr/ftp/presentations/Garavel-MARS-18.pdf
+        url: https://cadp.inria.fr/ftp/presentations/Garavel-MARS-18.pdf
       - label: Models
-        url: http://mars-workshop.org//repository/012-MAA.html
+        url: https://mars-workshop.org//repository/012-MAA.html
     source: https://www.cs.toronto.edu/~lmarsso/
     showOnProfile: false
     profileOrder: 100
@@ -521,9 +521,9 @@ publications:
       - label: Paper
         url: https://hal.inria.fr/hal-01777861/en
       - label: Slides
-        url: http://convecs.inria.fr/doc/presentations/Marsso-TACAS-18.pdf
+        url: https://convecs.inria.fr/doc/presentations/Marsso-TACAS-18.pdf
       - label: Tool
-        url: http://convecs.inria.fr/software/testor/
+        url: https://convecs.inria.fr/software/testor/
     source: https://www.cs.toronto.edu/~lmarsso/
     showOnProfile: true
     profileOrder: 4
@@ -542,9 +542,9 @@ publications:
       - label: Paper
         url: https://hal.inria.fr/hal-01511859/en
       - label: Slides
-        url: http://cadp.inria.fr/ftp/presentations/Garavel-MARS-17-a.pdf
+        url: https://cadp.inria.fr/ftp/presentations/Garavel-MARS-17-a.pdf
       - label: Model
-        url: http://mars-workshop.org//repository/012-MAA.html
+        url: https://mars-workshop.org//repository/012-MAA.html
     source: https://www.cs.toronto.edu/~lmarsso/
     showOnProfile: false
     profileOrder: 100
